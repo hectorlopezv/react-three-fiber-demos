@@ -20,12 +20,12 @@ export function Avatar(props) {
   const { animations: capoeiraAnimation } = useFBX("animations/Capoeira.fbx");
   const { animations: armadaAnimation } = useFBX("animations/Armada.fbx");
   const { animations: esquivaAnimation } = useFBX(
-    "animations/Armada_To_Esquiva.fbx"
+    "animations/Salsa_Dancing.fbx"
   );
 
   capoeiraAnimation[0].name = "Capoeira";
   armadaAnimation[0].name = "Armada";
-  esquivaAnimation[0].name = "Esquiva";
+  esquivaAnimation[0].name = "Salsa_Dancing";
 
   const { actions } = useAnimations(
     [capoeiraAnimation[0], armadaAnimation[0], esquivaAnimation[0]],

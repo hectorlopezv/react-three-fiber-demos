@@ -212,9 +212,9 @@ const SkillsRender = ({ skills }) => {
           >
             {skill.title}
           </motion.h3>
-          <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
+          <div className="h-2 w-full bg-white rounded-full mt-2">
             <motion.div
-              className="h-full bg-slate-600 rounded-full "
+              className="h-full bg-indigo-800 rounded-full "
               style={{ width: `${skill.level}%` }}
               initial={{
                 scaleX: 0,
@@ -258,9 +258,9 @@ const Languages = ({ languages }) => {
           >
             {lng.title}
           </motion.h3>
-          <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
+          <div className="h-2 w-full bg-white rounded-full mt-2">
             <motion.div
-              className="h-full bg-slate-600 rounded-full "
+              className="h-full bg-indigo-800 rounded-full "
               style={{ width: `${lng.level}%` }}
               initial={{
                 scaleX: 0,
@@ -290,7 +290,7 @@ const SkillsSection = () => {
         className="flex items-center gap-8 w-full justify-center"
       >
         <div className="space-y-4 w-full">
-          <h2 className="text-5xl font-bold">Skills</h2>
+          <h2 className="text-5xl font-bold text-white">Skills</h2>
           <div className="flex  gap-8 pb-24 md:pb-16 flex-wrap">
             <SkillsRender skills={skills.slice(0, 4)} />
             <SkillsRender skills={skills.slice(4, 8)} />
@@ -298,7 +298,7 @@ const SkillsSection = () => {
             <SkillsRender skills={skills.slice(12, 16)} />
           </div>
           <div className="w-ful">
-            <h2 className="text-5xl font-bold mt-8">Languages</h2>
+            <h2 className="text-5xl font-bold mt-8 text-white">Languages</h2>
             <div className="space-y-4 pt-8">
               <Languages languages={languages} />
             </div>
