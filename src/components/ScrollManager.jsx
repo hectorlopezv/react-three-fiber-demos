@@ -17,6 +17,7 @@ export default function ScrollManager({ section, setSection, children }) {
     }
 
     const currentSection = Math.floor(data.scroll.current * data.pages);
+    console.log("currentSection", currentSection);
     if (data.scroll.current > lastScroll.current && currentSection === 0) {
       setSection(1);
     }
@@ -26,6 +27,7 @@ export default function ScrollManager({ section, setSection, children }) {
     ) {
       setSection(0);
     }
+
     lastScroll.current = data.scroll.current;
   });
   useLayoutEffect(() => {

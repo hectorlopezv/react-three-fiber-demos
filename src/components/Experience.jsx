@@ -3,12 +3,26 @@ import {
   MeshDistortMaterial,
   MeshWobbleMaterial,
 } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
+import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
+import { useEffect } from "react";
+import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
 import { Office } from "./Office";
-export const Experience = ({ section }) => {
+export const Experience = ({ section, menuOpen }) => {
   const { viewport } = useThree();
+  const cameraPositionX = useMotionValue();
+  const cameraLookAtx = useMotionValue();
+
+  useEffect(() => {
+    animate(cameraPositionX, menuOpen ? -5 : 0, { ...framerMotionConfig });
+    animate(cameraLookAtx, menuOpen ? 5 : 1, { ...framerMotionConfig });
+  }, [section, menuOpen]);
+  useFrame((state) => {
+    state.camera.position.x = cameraPositionX.get();
+    state.camera.lookAt(cameraLookAtx.get(), 0, 0);
+  });
   return (
     <>
       <ambientLight intensity={1} />
@@ -24,9 +38,14 @@ export const Experience = ({ section }) => {
       </motion.group>
       <motion.group
         position={[0, -1.5, -10]}
+        opacity={1}
         animate={{
           z: section === 1 ? 0 : -10,
-          y: section === 1 ? -viewport.height * 1.6 : 0,
+          y:
+            section === 1 || section === 0
+              ? -viewport.height * 1.2
+              : -viewport.height * 10,
+          opacity: section === 1 || section === 0 ? 1 : 0,
         }}
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
