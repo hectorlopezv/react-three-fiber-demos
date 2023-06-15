@@ -24,12 +24,14 @@ function App() {
         <Canvas shadows camera={{ position: [0, 3, 10], fov: 42 }}>
           <color attach="background" args={["#93e6f9"]} />
           <ScrollControls pages={4} damping={0.1}>
-            <ScrollManager section={section} setSection={setSection}>
-              <Experience />
-              <Scroll html>
-                <Interface />
-              </Scroll>
-            </ScrollManager>
+            <ScrollManager section={section} setSection={setSection} />
+            <Scroll>
+              <Experience section={section} />
+            </Scroll>
+
+            <Scroll html>
+              <Interface />
+            </Scroll>
           </ScrollControls>
         </Canvas>
         <MenuBar
