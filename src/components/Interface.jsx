@@ -62,7 +62,7 @@ const AboutSection = () => {
           y: 0,
         }}
         transition={{
-          duration: 1,
+          duration: 0.5,
           delay: 1.5,
         }}
       >
