@@ -2,8 +2,9 @@ import {
   Float,
   MeshDistortMaterial,
   MeshWobbleMaterial,
+  useScroll,
 } from "@react-three/drei";
-import React from "react";
+import React, { useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
@@ -11,12 +12,27 @@ import { useEffect, useRef } from "react";
 import { framerMotionConfig } from "../../../config";
 import { Avatar } from "../../models/Avatar";
 import { Office } from "../../models/Office";
+import Projects from "../Projects/Projects";
 
-export const Experience = ({ section, menuOpen }) => {
+export const Experience = ({ menuOpen }) => {
   const { viewport } = useThree();
   const cameraPositionX = useMotionValue(0);
   const cameraLookAtx = useMotionValue(0);
-
+  const [section, setsection] = useState(0);
+  const [characterAnimation, setCharacterAnimation] = useState("Typing");
+  const data: any = useScroll();
+  const animations = {
+    0: "Typing",
+    1: "Salsa_Dancing",
+    2: "Dancing",
+    3: "Dancing",
+  };
+  useEffect(() => {
+    setCharacterAnimation("Falling");
+    setTimeout(() => {
+      setCharacterAnimation(animations[section] ?? animations[1]);
+    }, 600);
+  }, [section]);
   useEffect(() => {
     animate(cameraPositionX, menuOpen ? -5 : 0, {
       ...framerMotionConfig,
@@ -24,16 +40,24 @@ export const Experience = ({ section, menuOpen }) => {
     animate(cameraLookAtx, menuOpen ? 5 : 1, { ...framerMotionConfig } as any);
   }, [section, menuOpen]);
   useFrame((state) => {
+    let currentSection = Math.floor(data.scroll.current * data.pages);
+    if (currentSection > 3) {
+      currentSection = 3;
+    }
+    if (currentSection !== section) {
+      setsection(currentSection);
+    }
     state.camera.position.x = cameraPositionX.get();
     state.camera.lookAt(cameraLookAtx.get(), 0, 0);
   });
   const characterContainerAboutRef = useRef(null);
+
   return (
     <>
       <motion.group
         position={[1.9722059084763766, 0.1953, 2.781079740544645]}
         rotation={[-3.0050816480707785, 1.211858530263369, 3.00298425570614]}
-        animate={"" + section}
+        animate={String(section)}
         transition={{
           duration: 1,
         }}
@@ -69,7 +93,7 @@ export const Experience = ({ section, menuOpen }) => {
           },
         }}
       >
-        <Avatar animation={section === 0 ? "Typing" : "Salsa_Dancing"} />
+        <Avatar animation={characterAnimation} />
       </motion.group>
       <ambientLight intensity={1} />
       <motion.group
@@ -137,6 +161,7 @@ export const Experience = ({ section, menuOpen }) => {
           </mesh>
         </Float>
       </motion.group>
+      <Projects />
     </>
   );
 };

@@ -31,9 +31,7 @@ function App() {
             <ScrollManager section={section} setSection={setSection} />
             <Scroll>
               <Suspense fallback={null}>
-                {start ? (
-                  <Experience section={section} menuOpen={menuOpen} />
-                ) : null}
+                {start ? <Experience menuOpen={menuOpen} /> : null}
               </Suspense>
             </Scroll>
 

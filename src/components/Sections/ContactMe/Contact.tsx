@@ -3,10 +3,10 @@ import Section from "../../utils/Section";
 const ContactSection = () => {
   return (
     <Section>
-      <h2 className="text-5xl font-bold text-center text-black ">
+      <h2 className="text-5xl font-bold text-center text-black italic">
         Let's Connect
       </h2>
-      <div className="mt-8 p-8 rounded-md bg-white w-full">
+      <div className="mt-8 p-8 rounded-md bg-white w-full max-w-xl">
         <form>
           <label
             htmlFor="name"

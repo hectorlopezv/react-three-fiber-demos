@@ -97,4 +97,19 @@ const languages = [
   },
 ];
 
-export { languages, skills };
+const projects = [
+  {
+    title: "Project 1",
+    description: "Project 1 description",
+    url: "https://www.google.com",
+    image: "/images/placeholder.jpg",
+  },
+  {
+    title: "Project 2",
+    description: "Project 2 description",
+    url: "https://www.google.com",
+    image: "/images/placeholder.jpg",
+  },
+];
+
+export { languages, skills, projects };
