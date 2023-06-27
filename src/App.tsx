@@ -15,7 +15,7 @@ const bgColors = {
   0: "#E2E8F0",
   1: "#e6e7ff",
   2: "#E2E8F0",
-  3: "#E2E8F0",
+  3: "#e6e7ff",
 };
 function App() {
   const [start, setStart] = useState(false);

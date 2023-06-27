@@ -99,7 +99,7 @@ export const Experience = ({ menuOpen }) => {
             y: iSMobile
               ? -viewport.height * 2  -2
               : -viewport.height * 2 + 0.5,
-            x: iSMobile ? 0.6 : -2,
+            x: iSMobile ? 0.6 : 0.6,
             z: iSMobile ? 0 : 6,
             rotateX: 0,
             rotateY: 0.3,
