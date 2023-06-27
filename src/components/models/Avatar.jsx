@@ -56,14 +56,14 @@ export function Avatar(props) {
   });
 
   useEffect(() => {
-    actions[animation].reset().fadeIn(0.5).play();
+    actions[animation]?.reset().fadeIn(0.5).play();
     return () => {
-      actions[animation].reset().fadeOut(0.5);
+      actions[animation]?.reset().fadeOut(0.5);
     };
   }, [animation]);
 
   useEffect(() => {
-    Object.values(materials).forEach((material) => {
+    Object.values(materials)?.forEach((material) => {
       material.wireframe = wireframe;
     });
   }, [wireframe]);

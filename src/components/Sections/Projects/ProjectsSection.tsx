@@ -22,22 +22,26 @@ export default function ProjectsSection({}) {
   const disabledNext = !(currentProject + 1 < length);
   return (
     <Section>
-      <div className="flex w-full pt-8 h-full gap-8 items-center justify-center">
-        <button
-          disabled={disabledPrevious}
-          className="hover:text-indigo-600 transition-colors"
-          onClick={previousProject}
-        >
-          Previous
-        </button>
-        <h2 className="text-5xl font-bold">Projects</h2>
-        <button
-          disabled={disabledNext}
-          className="hover:text-indigo-600 transition-colors"
-          onClick={nextProject}
-        >
-          Next
-        </button>
+      <div className="flex w-full h-full gap-8 p-8 items-center justify-center -translate-x-28 mt-24">
+        <div>
+          <button
+            disabled={disabledPrevious}
+            className="hover:text-indigo-600 transition-colors"
+            onClick={previousProject}
+          >
+            Previous
+          </button>
+        </div>
+        <h2 className="text-5xl font-bold italic">Projects</h2>
+        <div>
+          <button
+            disabled={disabledNext}
+            className="hover:text-indigo-600 transition-colors"
+            onClick={nextProject}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </Section>
   );

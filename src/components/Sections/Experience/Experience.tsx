@@ -13,6 +13,7 @@ import { framerMotionConfig } from "../../../config";
 import { Avatar } from "../../models/Avatar";
 import { Office } from "../../models/Office";
 import Projects from "../Projects/Projects";
+import Background from "../../Background";
 
 export const Experience = ({ menuOpen }) => {
   const { viewport } = useThree();
@@ -25,7 +26,7 @@ export const Experience = ({ menuOpen }) => {
     0: "Typing",
     1: "Salsa_Dancing",
     2: "Dancing",
-    3: "Dancing",
+    3: "Capoeira",
   };
   useEffect(() => {
     setCharacterAnimation("Falling");
@@ -54,6 +55,7 @@ export const Experience = ({ menuOpen }) => {
 
   return (
     <>
+      <Background />
       <motion.group
         position={[1.9722059084763766, 0.1953, 2.781079740544645]}
         rotation={[-3.0050816480707785, 1.211858530263369, 3.00298425570614]}
@@ -76,17 +78,17 @@ export const Experience = ({ menuOpen }) => {
             rotateZ: 0,
           },
           2: {
-            y: -viewport.height * 2 + 0.5,
-            x: -2,
+            y: -viewport.height * 2 + 1.5,
+            x: 1,
             z: 7,
-            rotateX: 0,
-            rotateY: Math.PI / 2,
-            rotateZ: 0,
+            rotateX: -1,
+            rotateY: Math.PI / 5,
+            rotateZ: -1,
           },
           3: {
             y: -viewport.height * 3 + 1,
-            x: 0.3,
-            z: 8.5,
+            x: 1.5,
+            z: 6,
             rotateX: 0,
             rotateY: 0,
             rotateZ: 0,

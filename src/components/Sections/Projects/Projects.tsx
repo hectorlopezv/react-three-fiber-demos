@@ -5,7 +5,14 @@ import { Image, Text } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
 import { animate, useMotionValue } from "framer-motion";
-import { ExtrudeGeometry, Shape } from "three";
+import {
+  Shape,
+  ExtrudeGeometry,
+  MeshBasicMaterial,
+  Mesh,
+  BufferGeometry,
+  BufferAttribute,
+} from "three";
 
 type Props = {};
 
@@ -59,6 +66,7 @@ const Project = (props) => {
         <pointLight position={[5, 5, 8]} />
         <meshBasicMaterial color="black" transparent opacity={0.4} />
       </mesh>
+
       <Image
         scale={[2.1, 1.2]}
         url={props?.project?.image}
