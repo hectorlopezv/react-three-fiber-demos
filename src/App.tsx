@@ -11,6 +11,7 @@ import ScrollManager from "./components/utils/ScrollManager";
 import { framerMotionConfig } from "./config";
 import React from "react";
 import { Experience } from "./components/Sections/Experience/Experience";
+import { Toaster } from "react-hot-toast";
 const bgColors = {
   0: "#E2E8F0",
   1: "#e6e7ff",
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <>
+      <Toaster />
       <LoadingScreen started={start} setStarted={() => setStart(true)} />
       <MotionConfig
         transition={{

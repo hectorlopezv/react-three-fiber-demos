@@ -33,7 +33,7 @@ export const Experience = ({ menuOpen }) => {
   const responsiveRatio = viewport.width / 12;
   const officeScaleRatio = Math.max(
     0.4,
-    Math.min(0.9 * responsiveRatio, 0, 0.9)
+    Math.min(0.9 * responsiveRatio, 0, 1.2)
   );
   useEffect(() => {
     setCharacterAnimation("Falling");
