@@ -6,7 +6,7 @@ const AboutSection = ({ setSection, mobileTop }) => {
     <Section>
       <div className="md:space-y-10">
         <h1 className=" text-4xl md:text-6xl font-extrabold leading-snug text-black mt-8 md:mt-0">
-          <div className="flex space-x-3 items-center inline-block">
+          <div className="inline-flex space-x-3 items-center">
             <p> Hi, I'm</p>
             <div>
               <button
