@@ -71,19 +71,12 @@ const AboutSection = ({ setSection, mobileTop }) => {
             delay: 1.5,
           }}
         >
-          <p>
-            FullStack Developer with 3 years of experience, based in Colombia
-          </p>
-          <p>
-            Who loves to learn new technologies and share knowledge with others.
-          </p>
-          <p>
+          <p className="leading-9">
+            FullStack Developer with 3 years of experience, based in Colombia,
+            Who loves to learn new technologies and share knowledge with others,
             Works with, React, Next.js, Node, Express, MongoDB, PostgreSQL,
-            GraphQL, Typescript,
-          </p>
-          <p>
-            TailwindCSS, MaterialUI, Framer Motion, AWS, GCP, React Three Fiber
-            and more.......
+            GraphQL, Typescript, TailwindCSS, MaterialUI, Framer Motion, AWS,
+            GCP, React Three Fiber and more............
           </p>
         </motion.div>
         <motion.button
