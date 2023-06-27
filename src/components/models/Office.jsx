@@ -30,8 +30,12 @@ export function Office(props) {
   const textureOpacitiy = useMotionValue(0);
   const glassTextureOpacitiy = useMotionValue(0);
   useEffect(() => {
-    animate(textureOpacitiy, section === 0 ? 1 : 0);
-    animate(glassTextureOpacitiy, section === 0 ? 0.42 : 0);
+    animate(textureOpacitiy, section === 0 ? 1 : 0, {
+      duration: 0.9,
+    });
+    animate(glassTextureOpacitiy, section === 0 ? 0.42 : 0, {
+      duration: 0.8,
+    });
   }, [section]);
   useFrame(() => {
     textureMaterial.opacity = textureOpacitiy.get();
@@ -227,7 +231,6 @@ export function Office(props) {
         position={[0.454, 0.939, -1.701]}
         rotation={[Math.PI, -1.099, Math.PI]}
       >
-
         <mesh
           name="iMac_1_1"
           geometry={nodes.iMac_1_1.geometry}

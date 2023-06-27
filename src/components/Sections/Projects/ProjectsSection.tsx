@@ -32,7 +32,7 @@ export default function ProjectsSection({}) {
             Previous
           </button>
         </div>
-        <h2 className="text-5xl font-bold italic">Projects</h2>
+        <h2 className="text-3xl md:text-5xlfont-bold italic">Projects</h2>
         <div>
           <button
             disabled={disabledNext}

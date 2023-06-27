@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 const Section = (props) => {
-  const { children } = props;
+  const { children, mobileTop } = props;
 
   return (
     <motion.section
@@ -9,7 +9,9 @@ const Section = (props) => {
         props.className ||
         `
     h-screen w-screen p-8 max-w-screen-2xl mx-auto
-    flex flex-col items-start justify-center
+    flex flex-col items-start ${
+      mobileTop ? " justify-start md:justify-center" : "justifiy-center"
+    }
     `
       }
       initial={{

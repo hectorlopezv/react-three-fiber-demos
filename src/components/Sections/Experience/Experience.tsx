@@ -95,7 +95,7 @@ export const Experience = ({ menuOpen }) => {
           },
         }}
       >
-        <Avatar animation={characterAnimation} />
+        <Avatar animation={characterAnimation} wireframe={section === 1} />
       </motion.group>
       <ambientLight intensity={1} />
       <motion.group

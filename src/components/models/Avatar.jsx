@@ -8,11 +8,10 @@ import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export function Avatar(props) {
-  const { animation } = props;
-  const { headFollow, cursorFollow, wireframe } = useControls({
+  const { animation, wireframe } = props;
+  const { headFollow, cursorFollow } = useControls({
     headFollow: false,
     cursorFollow: false,
-    wireframe: false,
   });
   const group = useRef();
   const { nodes, materials } = useGLTF("models/avatar/avatar.glb");

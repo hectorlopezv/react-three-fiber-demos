@@ -4,9 +4,9 @@ const SkillsRender = ({ skills }) => {
   return (
     <div className="flex flex-col gap-7 mt-2">
       {skills.map((skill, index) => (
-        <div className="w-64" key={index}>
+        <div className="w-[80%] md:w-[95%]" key={index}>
           <motion.h3
-            className="text font-bold text-black"
+            className="text-xs md:text-xl font-bold text-gray-100"
             initial={{
               opacity: 0,
             }}
@@ -22,7 +22,7 @@ const SkillsRender = ({ skills }) => {
           >
             {skill.title}
           </motion.h3>
-          <div className="h-2 w-full bg-white rounded-full mt-2">
+          <div className="h-2 bg-white rounded-full mt-2">
             <motion.div
               className="h-full bg-indigo-800 rounded-full "
               style={{ width: `${skill.level}%` }}

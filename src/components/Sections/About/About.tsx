@@ -1,10 +1,10 @@
 import Section from "../../utils/Section";
 import React from "react";
 import { motion } from "framer-motion";
-const AboutSection = ({ setSection }) => {
+const AboutSection = ({ setSection, mobileTop }) => {
   return (
     <Section>
-      <h1 className="text-6xl font-extrabold leading-snug text-black">
+      <h1 className=" text-4xl md:text-6xl font-extrabold leading-snug text-black mt-8 md:mt-0">
         Hi, I'm
         <br />
         <span className="bg-white px-2 rounded-sm italic text-black">
@@ -12,7 +12,7 @@ const AboutSection = ({ setSection }) => {
         </span>
       </h1>
       <motion.div
-        className="text-xl  mt-4 text-black font-semibold space-y-1"
+        className="text-md  md:text-xl  mt-4 text-gray-950 font-semibold space-y-1"
         initial={{
           opacity: 0,
           y: 25,
@@ -42,7 +42,7 @@ const AboutSection = ({ setSection }) => {
       <motion.button
         onClick={() => setSection(3)}
         className={`bg-indigo-600 text-white py-4 px-8 
-        rounded-lg font-bold text-lg mt-16`}
+        rounded-lg font-bold text-lg mt-5 md:mt-16`}
         initial={{
           opacity: 0,
           y: 25,
