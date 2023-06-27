@@ -27,6 +27,7 @@ function App() {
 
   return (
     <>
+      <LoadingScreen started={start} setStarted={() => setStart(true)} />
       <MotionConfig
         transition={{
           ...framerMotionConfig,
@@ -56,7 +57,6 @@ function App() {
         ) : null}
 
         <Cursor />
-        <LoadingScreen started={start} onStarted={() => setStart(true)} />
       </MotionConfig>
       <Leva hidden />
     </>

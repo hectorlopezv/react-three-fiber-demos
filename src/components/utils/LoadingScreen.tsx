@@ -1,35 +1,42 @@
 import { useProgress } from "@react-three/drei";
-import React from "react";
+import React, { useEffect } from "react";
 
-export default function LoadingScreen({ started, onStarted }) {
-  const { progress } = useProgress();
+const LoadingScreen = (props) => {
+  const { started, setStarted } = props;
+  const { progress, total, loaded, item } = useProgress();
+
+  useEffect(() => {
+    if (progress === 100) {
+      setTimeout(() => {
+        setStarted(true);
+      }, 800);
+    }
+  }, [progress, total, loaded, item]);
 
   return (
     <div
-      className={`h-screen w-screen fixed top-0 left-0 bottom-0 right-0 flex items-center 
-      justify-center z-[1] transition-opacity duration-[8000] ease-in delay-100  ${
-        started ? "opacity-0 pointer-events-none" : ""
-      }`}
+      className={`fixed top-0 left-0 w-full h-full z-50 transition-opacity duration-1000 pointer-events-none
+  flex items-center justify-center bg-indigo-50 
+  ${started ? "opacity-0" : "opacity-100"}`}
     >
-      <div className="absolute bottom-0 left-0 w-full h-[12px]">
-        <div
-          className="absolute left-0 top-0 bottom-0 bg-black bg-opacity-50 transition-width duration-400"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
-      <div
-        className="p-16 rounded-xl text-center  border border-gray-300
-        duration-400 group:transition-all group:ease-in-out group:duration-200  bg-gray-200
-        group
-        "
+      <h1
+        className="text-4xl md:text-9xl font-bold 
+      relative"
       >
-        <button
-          onClick={onStarted}
-          className="text-[4rem] m-0 mb-2 text-indigo-700 font-semibold group-hover:scale-105 transition-all ease-in-out duration-200"
+        <div
+          className="
+          bg-clip-text
+          text-transparent bg-gradient-to-r from-yellow-300 via-blue-400 to-red-400
+          absolute left-0 top-0  overflow-hidden truncate text-clip transition-all duration-500"
+          style={{
+            width: `${progress}%`,
+          }}
         >
-          Let's Connect
-        </button>
-      </div>
+          Hector Lopez
+        </div>
+        <div className="opacity-40">Hector Lopez</div>
+      </h1>
     </div>
   );
-}
+};
+export default LoadingScreen;

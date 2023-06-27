@@ -96,9 +96,7 @@ export const Experience = ({ menuOpen }) => {
             scaleZ: 1,
           },
           2: {
-            y: iSMobile
-              ? -viewport.height * 2  -2
-              : -viewport.height * 2 + 0.5,
+            y: iSMobile ? -viewport.height * 2 - 2 : -viewport.height * 2 + 0.5,
             x: iSMobile ? 0.6 : 0.6,
             z: iSMobile ? 0 : 6,
             rotateX: 0,
@@ -110,7 +108,7 @@ export const Experience = ({ menuOpen }) => {
           },
           3: {
             y: -viewport.height * 3 + 1,
-            x: iSMobile?0.5:1.5,
+            x: iSMobile ? 0.5 : 1.5,
             z: iSMobile ? 4 : 6,
             rotateX: 0,
             rotateY: 0,
@@ -135,6 +133,9 @@ export const Experience = ({ menuOpen }) => {
         ]}
         scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
         rotation-y={-Math.PI / 4}
+        transition={{
+          duration: 1.2,
+        }}
       >
         <Office section={section} />
 

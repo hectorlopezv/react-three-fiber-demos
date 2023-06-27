@@ -143,3 +143,10 @@ export function Avatar(props) {
 }
 
 useGLTF.preload("models/avatar/avatar.glb");
+useFBX.preload("animations/Capoeira.fbx");
+useFBX.preload("animations/Armada.fbx");
+useFBX.preload("animations/Typing.fbx");
+useFBX.preload("animations/Dancing.fbx");
+useFBX.preload("animations/Falling.fbx");
+useFBX.preload("animations/Salsa_Dancing.fbx");
+
