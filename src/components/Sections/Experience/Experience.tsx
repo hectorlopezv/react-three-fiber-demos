@@ -28,6 +28,13 @@ export const Experience = ({ menuOpen }) => {
     2: "Dancing",
     3: "Capoeira",
   };
+
+  const iSMobile = window.innerWidth < 768;
+  const responsiveRatio = viewport.width / 12;
+  const officeScaleRatio = Math.max(
+    0.4,
+    Math.min(0.9 * responsiveRatio, 0, 0.9)
+  );
   useEffect(() => {
     setCharacterAnimation("Falling");
     setTimeout(() => {
@@ -50,48 +57,67 @@ export const Experience = ({ menuOpen }) => {
     }
     state.camera.position.x = cameraPositionX.get();
     state.camera.lookAt(cameraLookAtx.get(), 0, 0);
+    if (section === 0) {
+      characterContainerAboutRef.current?.getWorldPosition(
+        characterGroupRef.current?.position
+      );
+    }
   });
-  const characterContainerAboutRef = useRef(null);
+  const characterContainerAboutRef = useRef<any>(null);
+  const characterGroupRef = useRef<any>(null);
 
   return (
     <>
-      <Background />
+      {/* <Background /> */}
       <motion.group
-        position={[1.9722059084763766, 0.1953, 2.781079740544645]}
+        ref={characterGroupRef}
+        // position={[1.9722059084763766, 0.1953, 2.781079740544645]}
         rotation={[-3.0050816480707785, 1.211858530263369, 3.00298425570614]}
         animate={String(section)}
         transition={{
           duration: 1,
         }}
+        scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
         variants={{
           0: {
-            scaleX: 0.9,
-            scaleY: 0.9,
-            scaleZ: 0.9,
+            scaleX: officeScaleRatio,
+            scaleY: officeScaleRatio,
+            scaleZ: officeScaleRatio,
           },
           1: {
             y: -viewport.height + 0.7,
-            x: 0,
+            x: iSMobile ? 0.4 : 0,
             z: 6.5,
             rotateX: 0,
             rotateY: 0,
             rotateZ: 0,
+            scaleX: 1,
+            scaleY: 1,
+            scaleZ: 1,
           },
           2: {
-            y: -viewport.height * 2 + 1.5,
-            x: 1,
-            z: 7,
-            rotateX: -1,
-            rotateY: Math.PI / 5,
-            rotateZ: -1,
+            y: iSMobile
+              ? -viewport.height * 2  -2
+              : -viewport.height * 2 + 0.5,
+            x: iSMobile ? 0.6 : -2,
+            z: iSMobile ? 0 : 6,
+            rotateX: 0,
+            rotateY: 0.3,
+            rotateZ: -0.4,
+            scaleX: 1,
+            scaleY: 1,
+            scaleZ: 1,
           },
           3: {
             y: -viewport.height * 3 + 1,
-            x: 1.5,
-            z: 6,
+            x: iSMobile?0.5:1.5,
+            z: iSMobile ? 4 : 6,
             rotateX: 0,
             rotateY: 0,
             rotateZ: 0,
+            scaleX: 1,
+            scaleY: 1,
+            scaleZ: 1,
           },
         }}
       >
@@ -100,10 +126,14 @@ export const Experience = ({ menuOpen }) => {
       <ambientLight intensity={1} />
       <motion.group
         animate={{
-          y: section === 0 ? 0 : -1,
+          y: iSMobile ? -viewport.height / 6 : 0,
         }}
-        position={[1.5, 2, 3]}
-        scale={[0.9, 0.9, 0.9]}
+        position={[
+          iSMobile ? 0.7 : 1.5 * officeScaleRatio,
+          iSMobile ? -viewport.height / 6 : 2,
+          3,
+        ]}
+        scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
         rotation-y={-Math.PI / 4}
       >
         <Office section={section} />

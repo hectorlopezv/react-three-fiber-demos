@@ -18,13 +18,13 @@ export default function Background({}: Props) {
     tl.current = gsap.timeline();
     tl.current.to(color.current, {
       duration: 1,
-      color: "#7a73dd",
+      color: "#E2E8F0",
       ease: "none",
     });
 
     tl.current.to(color.current, {
-      duration: 0.5,
-      color: "#212121",
+      duration: 1,
+      color: "#E2E8F0",
       ease: "none",
     });
   }, []);

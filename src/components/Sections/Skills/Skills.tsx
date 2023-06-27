@@ -14,6 +14,7 @@ const SkillsSection = () => {
       >
         <div
           className=" flex flex-col flex-1 space-y-4 overflow-hidden overflow-y-scroll max-h-[80%] 
+          md:scrollbar-thin
          scrollbar-thumb-[#64748b80] scrollbar-track-gray-100"
         >
           <h2 className="text-xl md:text-5xl font-bold text-white italic">

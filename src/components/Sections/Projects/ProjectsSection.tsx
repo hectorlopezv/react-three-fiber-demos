@@ -3,6 +3,7 @@ import Section from "../../utils/Section";
 import { useAtom } from "jotai";
 import { currentProjectAtom } from "./Projects";
 import { projects } from "../../../constants";
+import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 const length = projects.length;
 export default function ProjectsSection({}) {
   const [currentProject, setcurrentProject] = useAtom(currentProjectAtom);
@@ -22,26 +23,24 @@ export default function ProjectsSection({}) {
   const disabledNext = !(currentProject + 1 < length);
   return (
     <Section>
-      <div className="flex w-full h-full gap-8 p-8 items-center justify-center -translate-x-28 mt-24">
-        <div>
-          <button
-            disabled={disabledPrevious}
-            className="hover:text-indigo-600 transition-colors"
-            onClick={previousProject}
-          >
-            Previous
-          </button>
-        </div>
-        <h2 className="text-3xl md:text-5xlfont-bold italic">Projects</h2>
-        <div>
-          <button
-            disabled={disabledNext}
-            className="hover:text-indigo-600 transition-colors"
-            onClick={nextProject}
-          >
-            Next
-          </button>
-        </div>
+      <div className="flex h-screen w-screen items-center justify-center space-x-3">
+        <button
+          disabled={disabledPrevious}
+          className="hover:text-indigo-600 transition-colors block"
+          onClick={previousProject}
+        >
+          <ArrowLeftCircle className="text-red-500"/>
+        </button>
+
+        <h2 className="text-3xl md:text-5xlfont-bold italic block">Projects</h2>
+
+        <button
+          disabled={disabledNext}
+          className="hover:text-indigo-600 transition-colors block"
+          onClick={nextProject}
+        >
+          <ArrowRightCircle className="text-blue-600"/>
+        </button>
       </div>
     </Section>
   );

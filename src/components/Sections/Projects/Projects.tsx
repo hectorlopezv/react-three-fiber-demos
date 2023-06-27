@@ -17,11 +17,12 @@ import {
 type Props = {};
 
 const Project = (props) => {
+  const { viewport } = useThree();
   const background = useRef<any>(null);
   const bgOpacity = useMotionValue(0.4);
   // Create a shape with rounded corners
   const roundedRectShape = new Shape();
-
+  const isMobile = window.innerWidth < 768;
   function roundedRect(ctx, x, y, width, height, radius) {
     ctx.moveTo(x, y + radius);
     ctx.lineTo(x, y + height - radius);
@@ -46,6 +47,7 @@ const Project = (props) => {
     bevelSize: 0.1,
     bevelSegments: 1,
   };
+
   const geometry = new ExtrudeGeometry(roundedRectShape, extrudeSettings);
   useEffect(() => {
     animate(bgOpacity, props.highlighted ? 0.8 : 0.4);
@@ -56,7 +58,7 @@ const Project = (props) => {
     }
   });
   return (
-    <group {...props}>
+    <group {...props} scale={[0.85, 0.85, 0.85]}>
       <mesh
         geometry={geometry}
         ref={background}
@@ -97,14 +99,14 @@ export const currentProjectAtom = atom(Math.floor(projects.length / 2));
 export default function Projects({}: Props) {
   const { viewport } = useThree();
   const [currentProject] = useAtom(currentProjectAtom);
-
+  const isMobile = window.innerWidth < 768;
   return (
-    <motion.group position-y={-viewport?.height * 2 + 1}>
+    <motion.group position={[isMobile ? 1 : 0, -viewport?.height * 2 + 1, 0]}>
       {projects.map((project, index) => {
         return (
           <motion.group
             key={`project_${index}`}
-            position={[index * 2.5, 0, -3]}
+            position={[index * 1.5, 0, -3]}
             animate={{
               x: 0 + (index - currentProject) * 3,
               y: currentProject === index ? 0 : -0.1,

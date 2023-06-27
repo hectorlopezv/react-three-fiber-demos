@@ -11,6 +11,12 @@ import ScrollManager from "./components/utils/ScrollManager";
 import { framerMotionConfig } from "./config";
 import React from "react";
 import { Experience } from "./components/Sections/Experience/Experience";
+const bgColors = {
+  0: "#E2E8F0",
+  1: "#e6e7ff",
+  2: "#E2E8F0",
+  3: "#E2E8F0",
+};
 function App() {
   const [start, setStart] = useState(false);
   const [section, setSection] = useState(0);
@@ -18,6 +24,7 @@ function App() {
   useEffect(() => {
     setMenuOpen(false);
   }, [section]);
+
   return (
     <>
       <MotionConfig
@@ -26,7 +33,7 @@ function App() {
         }}
       >
         <Canvas shadows camera={{ position: [0, 3, 10], fov: 42 }}>
-          <color attach="background" args={["#E2E8F0"]} />
+          <color attach="background" args={[bgColors[section]]} />
           <ScrollControls pages={4} damping={0.1}>
             <ScrollManager section={section} setSection={setSection} />
             <Scroll>
